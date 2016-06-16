@@ -19,9 +19,10 @@ public class Calculations {
                 break;
             }
             //хочу узнать выходит ли после break из цикла - Да, выжодит
-
+/*
             i++;
             System.out.println(i);
+            */
         }
         return result;
     }
