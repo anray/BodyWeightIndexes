@@ -6,7 +6,7 @@ package com.anray.BodyWeightIndex;
 public class Calculations {
 
     public static float doCalculation(float weight, float height){
-        return weight/(height*height);
+        return weight/(height*height/10000);
     }
 
     public static String doComparision(float calculationResult){

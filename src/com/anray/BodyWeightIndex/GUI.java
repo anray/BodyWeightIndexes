@@ -12,8 +12,8 @@ import java.math.BigDecimal;
 public class GUI {
     JFrame frame = new JFrame();
     JPanel panel = new JPanel();
-    JLabel weightLabel = new JLabel("Введите Вашу массу тела: ");
-    JLabel heightLabel = new JLabel("Введите Ваш рост: ");
+    JLabel weightLabel = new JLabel("Введите Вашу массу тела (кг): ");
+    JLabel heightLabel = new JLabel("Введите Ваш рост (см): ");
     JLabel resultLabel = new JLabel();
     JTextField weightField = new JTextField(10);
     JTextField heightField = new JTextField(10);
@@ -44,7 +44,7 @@ public class GUI {
 
         frame.getContentPane().add(panel);
 
-        frame.setSize(700,400);
+        frame.setSize(400,400);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,15 +67,17 @@ public class GUI {
             try {
                  weight = Float.parseFloat(weightField.getText());
                  height = Float.parseFloat(heightField.getText());
+                float calcResult = Calculations.doCalculation(weight,height);
+                String textResult = null;
+                textResult = Calculations.doComparision(calcResult);
+
+                resultLabel.setText(textResult);
             } catch (NumberFormatException ex)
             {
                 resultLabel.setText("Вы ввели не числа в поля! Пожалуйста, исправьте.");
-            }
-            float calcResult = Calculations.doCalculation(weight,height);
-            String textResult = null;
-            textResult = Calculations.doComparision(calcResult);
 
-            resultLabel.setText(textResult);
+            }
+
         }
     }
 
@@ -85,9 +87,12 @@ public class GUI {
             String text = ((JTextField) input).getText();
             try {
                 BigDecimal value = new BigDecimal(text);
+                resultLabel.setText("");
                 return true;
             } catch (NumberFormatException ex) {
+                resultLabel.setText("Вы ввели не числа в поля! Пожалуйста, исправьте.");
                 return false;
+
             }
         }
     }
