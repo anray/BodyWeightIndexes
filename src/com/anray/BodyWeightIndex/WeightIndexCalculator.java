@@ -3,13 +3,13 @@ package com.anray.BodyWeightIndex;
 /**
  * Created by anray on 16.06.2016.
  */
-public class Calculations {
+public class WeightIndexCalculator {
 
-    public static float doCalculation(float weight, float height){
+    public static float calculateWeightIndex(float weight, float height){
         return weight/(height*height/10000);
     }
 
-    public static String doComparision(float calculationResult){
+    public static String getWeightIndexTitle(float calculationResult){
         String result = null;
         int i=0;
         for(Indexes n : Indexes.values()){

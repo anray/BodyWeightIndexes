@@ -67,9 +67,9 @@ public class GUI {
             try {
                  weight = Float.parseFloat(weightField.getText());
                  height = Float.parseFloat(heightField.getText());
-                float calcResult = Calculations.doCalculation(weight,height);
+                float calcResult = com.anray.BodyWeightIndex.WeightIndexCalculator.calculateWeightIndex(weight,height);
                 String textResult = null;
-                textResult = Calculations.doComparision(calcResult);
+                textResult = com.anray.BodyWeightIndex.WeightIndexCalculator.getWeightIndexTitle(calcResult);
 
                 resultLabel.setText(textResult);
             } catch (NumberFormatException ex)
